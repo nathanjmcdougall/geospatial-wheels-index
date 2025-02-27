@@ -1,6 +1,6 @@
 version = 1
 revision = 1
-requires-python = ">=3.11.6"
+requires-python = ">=3.13"
 
 [[package]]
 name = "anyio"
@@ -9,7 +9,6 @@ source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "idna" },
     { name = "sniffio" },
-    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/a3/73/199a98fc2dae33535d6b8e8e6ec01f8c1d76c9adb096c6b7d64823038cde/anyio-4.8.0.tar.gz", hash = "sha256:1d9fe889df5212298c0c0723fa20479d1b94883a2df44bd3897aa91083316f7a", size = 181126 }
 wheels = [
@@ -35,10 +34,21 @@ wheels = [
 ]
 
 [[package]]
+name = "gdal"
+version = "3.10.1"
+source = { registry = "https://nathanjmcdougall.github.io/geospatial-wheels-windows-flatlinks" }
+wheels = [
+    { url = "https://github.com/cgohlke/geospatial-wheels/releases/download/v2025.1.20/GDAL-3.10.1-cp313-cp313-win32.whl" },
+    { url = "https://github.com/cgohlke/geospatial-wheels/releases/download/v2025.1.20/GDAL-3.10.1-cp313-cp313-win_amd64.whl" },
+    { url = "https://github.com/cgohlke/geospatial-wheels/releases/download/v2025.1.20/GDAL-3.10.1-cp313-cp313-win_arm64.whl" },
+]
+
+[[package]]
 name = "gdal-windows-whl-flatlinks"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "gdal" },
     { name = "httpx" },
 ]
 
@@ -52,7 +62,10 @@ test = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "httpx", specifier = ">=0.28.1" }]
+requires-dist = [
+    { name = "gdal", specifier = ">=3.10.1", index = "https://girder.github.io/large_image_wheels" },
+    { name = "httpx", specifier = ">=0.28.1" },
+]
 
 [package.metadata.requires-dev]
 dev = [
@@ -213,13 +226,4 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/3a/7a/fca432020e0b2134f7bb8fa4bf4714f6f0d1c72a08100c96b582c22098bc/toml_fmt_common-1.0.1.tar.gz", hash = "sha256:7a29e99e527ffac456043296a0f1d8c03aaa1b06167bd39ad5e3cc5041f31c17", size = 9626 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e8/7f/094a5d096adaf2a51de24c8650530625a262bef0c654fc981165ad45821f/toml_fmt_common-1.0.1-py3-none-any.whl", hash = "sha256:7a6542e36a7167fa94b8b997d3f8debadbb4ab757c7d78a77304579bd7a0cc7d", size = 5666 },
-]
-
-[[package]]
-name = "typing-extensions"
-version = "4.12.2"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8", size = 85321 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/26/9f/ad63fc0248c5379346306f8668cda6e2e2e9c95e01216d2b8ffd9ff037d0/typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d", size = 37438 },
 ]

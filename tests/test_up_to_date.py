@@ -47,8 +47,7 @@ def test_up_to_date(tmp_path: Path) -> None:
 </pre>
 </body>
 
-</html>
-"""
+</html>"""
     )
 
     html_file = tmp_path / "index.html"
