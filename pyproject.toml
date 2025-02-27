@@ -14,7 +14,6 @@ authors = [
 requires-python = ">=3.13"
 classifiers = [ "Programming Language :: Python :: 3 :: Only", "Programming Language :: Python :: 3.13" ]
 dependencies = [
-  "gdal>=3.10.1",
   "httpx>=0.28.1",
 ]
 
@@ -44,13 +43,19 @@ filterwarnings = [ "error" ]
 
 [tool.uv]
 default-groups = [ "test", "dev" ]
-find-links = [ "https://nathanjmcdougall.github.io/geospatial-wheels-windows-flatlinks" ]
 
 [tool.uv.sources]
 gdal = [
-  { index = "large_image_wheels" },
+#   { index = "large_image_wheels", marker = "sys_platform == 'linux'" },
+  { index = "geospatial_wheels", marker = "sys_platform == 'win32'" },
 ]
 
+# [[tool.uv.index]]
+# name = "large_image_wheels"
+# url = "https://girder.github.io/large_image_wheels"
+# explicit = true
+
 [[tool.uv.index]]
-name = "large_image_wheels"
-url = "https://girder.github.io/large_image_wheels"
+name = "geospatial_wheels"
+url = "https://nathanjmcdougall.github.io/geospatial-wheels-windows-flatlinks"
+explicit = true
