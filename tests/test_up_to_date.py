@@ -40,14 +40,15 @@ def _get_package_name(whl_url: str) -> str:
     return Path(whl_url).name.split("-")[0].lower()
 
 
-@pytest.mark.skipif(not os.getenv("CI"), reason="API rate limits")
 def test_index_up_to_date(tmp_path: Path) -> None:
     """Save asset URLs to a text file, filtering for those containing 'GDAL'."""
 
-    whl_urls = _get_whl_urls()
-    package_names = sorted({_get_package_name(whl_url) for whl_url in whl_urls})
-
-    assert package_names == PACKAGE_NAMES
+    if os.getenv("CI"):  # Don't do this locally due to rate limits
+        whl_urls = _get_whl_urls()
+        package_names = sorted({_get_package_name(whl_url) for whl_url in whl_urls})
+        assert package_names == PACKAGE_NAMES
+    else:
+        package_names = PACKAGE_NAMES
 
     html_contents = (
         """\
@@ -57,7 +58,7 @@ def test_index_up_to_date(tmp_path: Path) -> None:
 """
         + "\n".join(
             [
-                f"""    <a href="{whl_name}/">{whl_name}</a>"""
+                f"""    <a href="geospatial-wheels-windows-flatlinks/{whl_name}/">{whl_name}</a>"""
                 for whl_name in package_names
             ]
         )
@@ -95,7 +96,7 @@ def test_package_versions_up_to_date(package_name: str, tmp_path: Path) -> None:
 """
         + "\n".join(
             [
-                f"""    <a href="{whl_url}" download="{Path(whl_url).name}">{Path(whl_url).name}</a>"""
+                f"""    <a href="{whl_url}">{Path(whl_url).name}</a>"""
                 for whl_url in whl_urls
             ]
         )
@@ -112,5 +113,6 @@ def test_package_versions_up_to_date(package_name: str, tmp_path: Path) -> None:
 
     if not pkg_dir.exists():
         pkg_dir.mkdir(parents=True)
+        (pkg_dir / "index.html").write_text(html_contents)
 
     assert html_file.read_text() == (pkg_dir / "index.html").read_text()
