@@ -57,7 +57,7 @@ def test_index_up_to_date(tmp_path: Path) -> None:
 """
         + "\n".join(
             [
-                f"""    <a href="/{whl_name}/">{whl_name}</a>"""
+                f"""    <a href="{whl_name}/">{whl_name}</a>"""
                 for whl_name in package_names
             ]
         )
