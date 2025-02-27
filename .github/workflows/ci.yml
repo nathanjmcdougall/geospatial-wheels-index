@@ -1,0 +1,45 @@
+name: CI
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main']
+  pull_request:
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup git user config
+        run: |
+          git config --global user.name placeholder
+          git config --global user.email placeholder@example.com
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@e779db74266a80753577425b0f4ee823649f251d # v3.2.3
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+        with:
+          python-version: ${{ matrix.python-version }}
+        
+      - name: Setup dependencies
+        run: |
+          uv export --resolution ${{ matrix.resolution }} > requirements.txt 
+          uv pip install --system --break-system-packages -r requirements.txt
+
+      - name: Run pytest
+        uses: pavelzw/pytest-action@510c5e90c360a185039bea56ce8b3e7e51a16507 # v2.2.0
+        with:
+          custom-arguments: --cov --junitxml=junit.xml -o junit_family=legacy
+
+    strategy:
+      matrix:
+        os: ["ubuntu-latest"]
+        python-version: ["3.13"]
+        resolution: ["highest"]
