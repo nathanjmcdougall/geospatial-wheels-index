@@ -64,8 +64,8 @@ uv add pygeos
 
 ## Acknowledgements
 
-This index is totally dependent on the work of [Christoph Gohlke](https://github.com/cgohlke) to tirelessly build and host wheels for the Python geospatial stack on Windows.
+This index is totally dependent on the work of [Christoph Gohlke](https://github.com/cgohlke) to tirelessly build and host wheels for the Python geospatial stack on Windows, at <https://github.com/cgohlke/geospatial-wheels>.
 
-The work of [Petr Tsymbarovich](https://gitlab.com/mentaljam) is also acknowledged for similarly dedicated work at building and hosting wheels for GDAL on Linux, to enable cross-platform installation of `gdal` with `uv`.
+The work of [Petr Tsymbarovich](https://gitlab.com/mentaljam) is also acknowledged for similarly dedicated work at building and hosting wheels for GDAL on Linux on a PEP503 index, to enable cross-platform installation of `gdal` with `uv`. This index is based at <https://gitlab.com/mentaljam/gdal-wheels>.
 
 Using this index together with indexes for other platforms would not be possible without the work of [Astral](https://astral.sh/), with [uv's powerful index support](https://docs.astral.sh/uv/configuration/indexes/#package-indexes).
