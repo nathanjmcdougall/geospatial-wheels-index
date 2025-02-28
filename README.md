@@ -1,6 +1,6 @@
 # Geospatial Wheels Index for Windows
 
-A [PEP503 compliant index](https://nathanjmcdougall.github.io/geospatial-wheels-index/) for installation of geospatial wheels on Windows.
+A [PEP503 compliant index](https://nathanjmcdougall.github.io/geospatial-wheels-index/) for installation of geospatial wheels on Windows, using [Christoph Gohlke](https://github.com/cgohlke)'s wheel builds at <https://github.com/cgohlke/geospatial-wheels>.
 
 ## Cross-platform GDAL installation with `uv`
 
