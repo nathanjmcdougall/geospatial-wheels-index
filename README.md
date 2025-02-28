@@ -1,6 +1,6 @@
-# Geospatial Wheels Flatlinks
+# Geospatial Wheels index
 
-A [PEP503 compliant index](https://nathanjmcdougall.github.io/geospatial-wheels-flatlinks/) for installation of geospatial wheels on Windows.
+A [PEP503 compliant index](https://nathanjmcdougall.github.io/geospatial-wheels-index/) for installation of geospatial wheels on Windows.
 
 ## Acknowledgements
 

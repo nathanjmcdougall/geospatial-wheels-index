@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 requires = [ "hatchling" ]
 
 [project]
-name = "geospatial-wheels-flatlinks"
+name = "geospatial-wheels-index"
 version = "0.1.0"
 description = "A PEP503 compliant package index for cgohlke/geospatial-wheels Windows GIS wheel files"
 readme = "README.md"
@@ -53,7 +53,7 @@ gdal = [
 
 [[tool.uv.index]]
 name = "geospatial_wheels"
-url = "https://nathanjmcdougall.github.io/geospatial-wheels-flatlinks/"
+url = "https://nathanjmcdougall.github.io/geospatial-wheels-index/"
 explicit = true
 
 [[tool.uv.index]]

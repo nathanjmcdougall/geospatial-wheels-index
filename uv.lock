@@ -50,7 +50,7 @@ sdist = { url = "https://gitlab.com/api/v4/projects/61637378/packages/pypi/files
 [[package]]
 name = "gdal"
 version = "3.10.1"
-source = { registry = "https://nathanjmcdougall.github.io/geospatial-wheels-flatlinks/" }
+source = { registry = "https://nathanjmcdougall.github.io/geospatial-wheels-index/" }
 resolution-markers = [
     "sys_platform == 'win32'",
 ]
@@ -74,12 +74,12 @@ wheels = [
 ]
 
 [[package]]
-name = "geospatial-wheels-flatlinks"
+name = "geospatial-wheels-index"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "gdal", version = "3.10.1", source = { registry = "https://gitlab.com/api/v4/projects/61637378/packages/pypi/simple" }, marker = "sys_platform != 'linux' and sys_platform != 'win32'" },
-    { name = "gdal", version = "3.10.1", source = { registry = "https://nathanjmcdougall.github.io/geospatial-wheels-flatlinks/" }, marker = "sys_platform == 'win32'" },
+    { name = "gdal", version = "3.10.1", source = { registry = "https://nathanjmcdougall.github.io/geospatial-wheels-index/" }, marker = "sys_platform == 'win32'" },
     { name = "gdal", version = "3.10.2", source = { registry = "https://gitlab.com/api/v4/projects/61637378/packages/pypi/simple" }, marker = "sys_platform == 'linux'" },
     { name = "httpx" },
 ]
@@ -97,7 +97,7 @@ test = [
 requires-dist = [
     { name = "gdal", marker = "sys_platform != 'linux' and sys_platform != 'win32'", specifier = ">=3.10.1" },
     { name = "gdal", marker = "sys_platform == 'linux'", specifier = ">=3.10.1", index = "https://gitlab.com/api/v4/projects/61637378/packages/pypi/simple" },
-    { name = "gdal", marker = "sys_platform == 'win32'", specifier = ">=3.10.1", index = "https://nathanjmcdougall.github.io/geospatial-wheels-flatlinks/" },
+    { name = "gdal", marker = "sys_platform == 'win32'", specifier = ">=3.10.1", index = "https://nathanjmcdougall.github.io/geospatial-wheels-index/" },
     { name = "httpx", specifier = ">=0.28.1" },
 ]
 

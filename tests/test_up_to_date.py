@@ -58,7 +58,7 @@ def test_index_up_to_date(tmp_path: Path) -> None:
 """
         + "\n".join(
             [
-                f"""    <a href="https://nathanjmcdougall.github.io/geospatial-wheels-flatlinks/{package_name}/">{package_name}</a>"""
+                f"""    <a href="https://nathanjmcdougall.github.io/geospatial-wheels-index/{package_name}/">{package_name}</a>"""
                 for package_name in package_names
             ]
         )
