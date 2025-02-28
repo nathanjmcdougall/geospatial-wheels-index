@@ -46,7 +46,7 @@ To install `pygeos` for example, add the following configuration to `pyproject.t
 
 ```TOML
 [tool.uv.sources]
-gdal = [
+pygeos = [
   { index = "geospatial_wheels", marker = "sys_platform == 'win32'" },
 ]
 
@@ -64,7 +64,7 @@ uv add pygeos
 
 ## Security
 
-You should only download wheel files from a trusted source. That includes this index - **it is recommended that you consider self-hosting a fork of this repo**. However, you would still need to trust the wheels at <https://github.com/cgohlke/geospatial-wheels> (as you would any publisher of Wheels, even on PyPI).
+You should only download wheel files from a trusted source. That includes this index - **it is recommended that you consider self-hosting a fork of this repo**. However, you would still need to trust the wheels at <https://github.com/cgohlke/geospatial-wheels> (as you would any publisher of wheels, even on PyPI).
 
 ## Acknowledgements
 
