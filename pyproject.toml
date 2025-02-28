@@ -4,9 +4,9 @@ build-backend = "hatchling.build"
 requires = [ "hatchling" ]
 
 [project]
-name = "gdal-windows-whl-flatlinks"
+name = "geospatial-wheels-flatlinks"
 version = "0.1.0"
-description = "A simple webpage with links to cgohlke/geospatial-wheels Windows GIS wheelfiles"
+description = "A PEP503 compliant package index for cgohlke/geospatial-wheels Windows GIS wheel files"
 readme = "README.md"
 authors = [
   { name = "Nathan McDougall", email = "nathan.j.mcdougall@gmail.com" },
@@ -14,6 +14,7 @@ authors = [
 requires-python = ">=3.13"
 classifiers = [ "Programming Language :: Python :: 3 :: Only", "Programming Language :: Python :: 3.13" ]
 dependencies = [
+  "gdal>=3.10.1",
   "httpx>=0.28.1",
 ]
 
@@ -46,16 +47,15 @@ default-groups = [ "test", "dev" ]
 
 [tool.uv.sources]
 gdal = [
-#   { index = "large_image_wheels", marker = "sys_platform == 'linux'" },
+  { index = "gdal-wheels", marker = "sys_platform == 'linux'" },
   { index = "geospatial_wheels", marker = "sys_platform == 'win32'" },
 ]
 
-# [[tool.uv.index]]
-# name = "large_image_wheels"
-# url = "https://girder.github.io/large_image_wheels"
-# explicit = true
-
 [[tool.uv.index]]
 name = "geospatial_wheels"
-url = "https://nathanjmcdougall.github.io/geospatial-wheels-windows-flatlinks"
+url = "https://nathanjmcdougall.github.io/geospatial-wheels-flatlinks/"
 explicit = true
+
+[[tool.uv.index]]
+name = "gdal-wheels"
+url = "https://gitlab.com/api/v4/projects/61637378/packages/pypi/simple"
