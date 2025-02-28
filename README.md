@@ -1,6 +1,6 @@
 # Geospatial Wheels Index for Windows
 
-A [PEP503 compliant index](https://nathanjmcdougall.github.io/geospatial-wheels-index/) for installation of geospatial wheels on Windows, using [Christoph Gohlke](https://github.com/cgohlke)'s wheel builds at <https://github.com/cgohlke/geospatial-wheels>.
+A [PEP503 compliant index](https://nathanjmcdougall.github.io/geospatial-wheels-index/) for installation of geospatial wheels on Windows, using [Christoph Gohlke](https://github.com/cgohlke)'s wheel builds at <https://github.com/cgohlke/geospatial-wheels>. Consider a self-hosted fork of this repo (see the Security section below).
 
 ## Cross-platform GDAL installation with `uv`
 
@@ -61,6 +61,10 @@ Then to install, you run:
 ```bash
 uv add pygeos
 ```
+
+## Security
+
+You should only download wheel files from a trusted source. That includes this index - **it is recommended that you consider self-hosting a fork of this repo**. However, you would still need to trust the wheels at <https://github.com/cgohlke/geospatial-wheels> (as you would any publisher of Wheels, even on PyPI).
 
 ## Acknowledgements
 
