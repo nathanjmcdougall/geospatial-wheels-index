@@ -59,3 +59,4 @@ explicit = true
 [[tool.uv.index]]
 name = "gdal-wheels"
 url = "https://gitlab.com/api/v4/projects/61637378/packages/pypi/simple"
+explicit = true
