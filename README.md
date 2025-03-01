@@ -10,11 +10,11 @@ To install `gdal` with both Windows and Linux support, add the following configu
 [tool.uv.sources]
 gdal = [
   { index = "gdal-wheels", marker = "sys_platform == 'linux'" },
-  { index = "geospatial_wheels", marker = "sys_platform == 'win32'" },
+  { index = "geospatial-wheels", marker = "sys_platform == 'win32'" },
 ]
 
 [[tool.uv.index]]
-name = "geospatial_wheels"
+name = "geospatial-wheels"
 url = "https://nathanjmcdougall.github.io/geospatial-wheels-index/"
 explicit = true
 
@@ -47,11 +47,11 @@ To install `pygeos` for example, add the following configuration to `pyproject.t
 ```TOML
 [tool.uv.sources]
 pygeos = [
-  { index = "geospatial_wheels", marker = "sys_platform == 'win32'" },
+  { index = "geospatial-wheels", marker = "sys_platform == 'win32'" },
 ]
 
 [[tool.uv.index]]
-name = "geospatial_wheels"
+name = "geospatial-wheels"
 url = "https://nathanjmcdougall.github.io/geospatial-wheels-index/"
 explicit = true
 ```
