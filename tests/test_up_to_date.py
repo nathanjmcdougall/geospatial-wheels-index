@@ -10,6 +10,7 @@ PACKAGE_NAMES = [
     "cftime",
     "fiona",
     "gdal",
+    "h5py",
     "netcdf4",
     "pygeos",
     "pyproj",
@@ -70,6 +71,9 @@ def test_index_up_to_date(tmp_path: Path) -> None:
 
     html_file = tmp_path / "index.html"
     html_file.write_text(html_contents)
+    # To update:
+    # (Path(__file__).parent.parent / "docs" / "index.html").write_text(html_contents)
+    # To ensure updated:
     assert (
         html_file.read_text()
         == (Path(__file__).parent.parent / "docs" / "index.html").read_text()
