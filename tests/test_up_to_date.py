@@ -115,4 +115,7 @@ def test_package_versions_up_to_date(package_name: str, tmp_path: Path) -> None:
         pkg_dir.mkdir(parents=True)
         (pkg_dir / "index.html").write_text(html_contents)
 
+    # To update:
+    # (pkg_dir / "index.html").write_text(html_contents)
+    # To ensure updated:
     assert html_file.read_text() == (pkg_dir / "index.html").read_text()
