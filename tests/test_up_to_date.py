@@ -13,6 +13,7 @@ PACKAGE_NAMES = [
     "h5py",
     "netcdf4",
     "pygeos",
+    "pyogrio",
     "pyproj",
     "rasterio",
     "rtree",
