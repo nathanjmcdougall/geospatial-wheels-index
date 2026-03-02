@@ -18,6 +18,7 @@ PACKAGE_NAMES = [
     "rasterio",
     "rtree",
     "shapely",
+    "tables",
 ]
 
 
@@ -45,7 +46,7 @@ def _get_package_name(whl_url: str) -> str:
 def test_index_up_to_date(tmp_path: Path) -> None:
     """Save asset URLs to a text file, filtering for those containing 'GDAL'."""
 
-    if os.getenv("CI"):  # Don't do this locally due to rate limits
+    if os.getenv("CI"):  # Don't do this locally often due to rate limits
         whl_urls = _get_whl_urls()
         package_names = sorted({_get_package_name(whl_url) for whl_url in whl_urls})
         assert package_names == PACKAGE_NAMES
