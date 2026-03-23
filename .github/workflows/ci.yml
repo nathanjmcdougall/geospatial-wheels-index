@@ -29,6 +29,7 @@ jobs:
         with:
           emoji: false
           job-summary: false
+          custom-pytest: uv run --frozen pytest
 
     strategy:
       matrix:
