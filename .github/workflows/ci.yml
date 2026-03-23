@@ -2,7 +2,7 @@ name: CI
 on:
   workflow_dispatch:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
   schedule:
     - cron: "0 0 * * *"
@@ -13,28 +13,16 @@ jobs:
       PYTHONIOENCODING: utf-8
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-
-      - name: Setup git user config
-        run: |
-          git config --global user.name placeholder
-          git config --global user.email placeholder@example.com
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@e779db74266a80753577425b0f4ee823649f251d # v3.2.3
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7.6.0
         with:
           version: "latest"
 
-      - name: Set up Python
-        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
-        with:
-          python-version: ${{ matrix.python-version }}
-        
       - name: Setup dependencies
         run: |
-          uv python pin ${{ matrix.python-version }}
-          uv export --no-managed-python --resolution ${{ matrix.resolution }} > requirements.txt 
-          uv pip install --system --break-system-packages -r requirements.txt
+          uv sync
 
       - name: Run pytest
         uses: pavelzw/pytest-action@510c5e90c360a185039bea56ce8b3e7e51a16507 # v2.2.0
@@ -45,5 +33,3 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest"]
-        python-version: ["3.13"]
-        resolution: ["highest"]
