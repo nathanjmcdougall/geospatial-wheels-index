@@ -1,3 +1,4 @@
+import functools
 import os
 from pathlib import Path
 
@@ -22,6 +23,7 @@ PACKAGE_NAMES = [
 ]
 
 
+@functools.cache  # To avoid multiple API calls during testing
 def _get_whl_urls() -> list[str]:
     url = "https://api.github.com/repos/cgohlke/geospatial-wheels/releases"
     response = httpx.get(url, timeout=10)
